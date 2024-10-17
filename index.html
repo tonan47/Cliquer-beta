@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Clics</title>
+    <!-- Vinculamos el archivo CSS externo -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contador">
+        <!-- Elemento para mostrar el número de clics -->
+        <h1 id="numeroClics">0</h1>
+        <!-- Botón para incrementar el contador -->
+        <button onclick="incrementarClics()">Haz clic aquí</button>
+    </div>
+
+    <script>
+        // Función para cargar el número de clics almacenado en localStorage
+        function cargarClics() {
+            // Obtener el número de clics guardado en localStorage
+            let clicsGuardados = localStorage.getItem('contadorClics');
+            // Si existe un valor guardado, lo asignamos al contador; si no, lo inicializamos en 0
+            return clicsGuardados ? parseInt(clicsGuardados) : 0;
+        }
+
+        // Función para actualizar el número de clics en pantalla
+        function actualizarClicsEnPantalla(clics) {
+            // Actualizamos el contenido del elemento h1 con el número de clics
+            const numeroClicsElement = document.getElementById('numeroClics');
+            numeroClicsElement.textContent = clics;
+            // Añadimos un pequeño efecto de escala para hacer que el número "salte" visualmente
+            numeroClicsElement.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                numeroClicsElement.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Función para incrementar el número de clics
+        function incrementarClics() {
+            // Aumentamos el contador en 1
+            contadorClics++;
+            // Guardamos el nuevo valor del contador en localStorage
+            localStorage.setItem('contadorClics', contadorClics);
+            // Actualizamos el número de clics mostrado en pantalla
+            actualizarClicsEnPantalla(contadorClics);
+        }
+
+        // Inicializamos el contador cargando el valor desde localStorage
+        let contadorClics = cargarClics();
+        // Mostramos el número de clics en pantalla al cargar la página
+        actualizarClicsEnPantalla(contadorClics);
+    </script>
+</body>
+</html>
