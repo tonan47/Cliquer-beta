@@ -1,0 +1,73 @@
+/* Estilos básicos para centrar el contenido y dar estilo al botón */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    /* Ajustamos la animación del fondo para que sea más suave y lenta */
+    animation: cambiarColores 30s infinite alternate;
+}
+
+.contador {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+    transition: transform 0.2s;
+}
+
+/* Estilo del botón */
+button {
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto al pasar el mouse por el botón */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Efecto al hacer clic en el botón */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Animación para cambiar los colores de fondo gradualmente */
+@keyframes cambiarColores {
+    0% {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    }
+    20% {
+        background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    }
+    40% {
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    }
+    60% {
+        background: linear-gradient(135deg, #a6c0fe 0%, #f68084 100%);
+    }
+    80% {
+        background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);
+    }
+    100% {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    }
+}
+
